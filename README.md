@@ -1,6 +1,6 @@
 # Portfolio VaR Engine: Equity Portfolio Risk Management
 
-A Python-based portfolio risk analysis project exploring **Value at Risk (VaR), Expected Shortfall (ES), volatility modelling, backtesting, and stress testing**, with an interactive dashboard deployed on Streamlit Cloud.
+A Python-based portfolio risk analysis project exploring **Value at Risk (VaR), Expected Shortfall (ES), volatility modelling, backtesting, and stress testing**, with an interactive dashboard deployed on Streamlit Cloud and a detailed quantitative research report.
 
 The project compares historical loss-based risk measurement with conditional volatility models to examine how portfolio risk estimates respond to changing market conditions.
 
@@ -20,13 +20,30 @@ Key dashboard features include:
 
 The dashboard is designed to make the project's risk analysis more accessible through interactive controls and visualisations.
 
+## Research Report
+
+**[View the Market Risk Research Report (PDF)](./Market_Risk_Research_Report.pdf)**
+
+The accompanying research report documents the quantitative foundations, modelling methodology, empirical findings, backtesting diagnostics, stress-testing scenarios, and limitations of the Portfolio VaR Engine.
+
+The report compares four risk modelling approaches:
+
+* **Historical Simulation:** Estimates portfolio downside risk using historical return observations.
+* **EWMA Volatility Scaling:** Models changing volatility using exponentially weighted observations.
+* **GARCH(1,1):** Captures conditional volatility clustering and persistence.
+* **GJR-GARCH(1,1,1):** Models potential asymmetry in volatility responses to positive and negative return shocks.
+
+It also presents comparative VaR and ES estimates, out-of-sample backtesting results, statistical diagnostics, Basel Traffic Light assessments, and historical stress-testing scenarios.
+
+The notebook contains the core analysis, the report provides a structured explanation of the methodology and findings, and the dashboard offers an interactive way to explore the implemented risk analysis.
+
 ## Project Overview
 
 Market risk cannot be understood from a single risk estimate. Historical losses, changing volatility, and periods of market stress can all affect the reliability of a model.
 
 This project develops a portfolio risk analysis workflow to investigate these challenges using Python. It combines historical simulation with conditional volatility models and backtesting techniques to evaluate portfolio downside risk.
 
-The Jupyter notebook contains the core research and analysis, while the deployed dashboard provides an interactive interface for exploring portfolio risk.
+The repository brings together the research notebook, a detailed quantitative report, and an interactive dashboard to support the analysis and interpretation of portfolio risk.
 
 ## Key Areas of Analysis
 
@@ -36,8 +53,9 @@ The Jupyter notebook contains the core research and analysis, while the deployed
 * **GARCH Modelling:** Analyses conditional volatility clustering in financial returns.
 * **GJR-GARCH Modelling:** Extends volatility analysis to account for potential asymmetry in the response to positive and negative shocks.
 * **VaR Backtesting:** Compares risk estimates with realised portfolio outcomes and examines exceptions.
-* **Statistical Backtesting:** Uses tests such as Kupiec's unconditional coverage test and Christoffersen's conditional coverage framework, where implemented.
-* **Stress Testing:** Explores portfolio sensitivity to adverse market conditions.
+* **Statistical Backtesting:** Uses tests such as Kupiec's unconditional coverage test and Christoffersen's independence and conditional coverage tests, where implemented.
+* **Basel Traffic Light Assessment:** Examines exception counts over the relevant evaluation window.
+* **Stress Testing:** Explores portfolio sensitivity to historical crises and adverse market scenarios.
 
 ## Methodology
 
@@ -50,6 +68,7 @@ The analysis follows a risk-modelling workflow:
 5. Compare risk estimates with realised outcomes through backtesting.
 6. Examine statistical test results and assess model limitations.
 7. Explore adverse scenarios and compare portfolio stress outcomes through the dashboard.
+8. Document the methodology, empirical findings, and limitations in the research report.
 
 The precise implementation, estimation windows, assumptions, and available model outputs are defined by the notebook and dashboard code.
 
@@ -57,13 +76,14 @@ The precise implementation, estimation windows, assumptions, and available model
 
 The objective is not simply to calculate a VaR number. It is to understand how different modelling assumptions influence risk estimates and how effectively those estimates capture realised losses.
 
-The project brings together portfolio analytics, time-series volatility modelling, tail-risk measurement, model validation, and interactive risk visualisation in a single research workflow.
+The project brings together portfolio analytics, time-series volatility modelling, tail-risk measurement, model validation, stress testing, and interactive risk visualisation in a single research workflow.
 
 ## Repository Structure
 
 ```text
 portfolio-var-engine/
 ├── VaR_Engine.ipynb
+├── Market_Risk_Research_Report.pdf
 ├── README.md
 └── portfolio_var_dashboard/
     ├── app.py
@@ -72,6 +92,7 @@ portfolio-var-engine/
 ```
 
 * `VaR_Engine.ipynb` — Jupyter notebook containing the portfolio risk analysis and modelling workflow.
+* `Market_Risk_Research_Report.pdf` — Quantitative research report documenting the methodology, empirical results, backtesting, stress testing, and limitations.
 * `portfolio_var_dashboard/app.py` — Streamlit application for interactive portfolio risk analysis and visualisation.
 * `portfolio_var_dashboard/requirements.txt` — Python dependencies required by the dashboard.
 * `portfolio_var_dashboard/README.md` — Dashboard-specific setup and usage instructions.
@@ -95,7 +116,7 @@ VaR and Expected Shortfall estimates depend on the data, model assumptions, conf
 
 Dashboard outputs depend on the selected portfolio inputs, data availability, model configuration, and implementation. Interactive results should be interpreted in the context of the underlying methodology and its assumptions.
 
-The findings are specific to the portfolio and sample examined in the relevant analysis. The dashboard's available calculations and controls should be understood in conjunction with the implemented code.
+The findings are specific to the portfolio and sample examined in the analysis. The dashboard's available calculations and controls should be understood in conjunction with the implemented code and research report.
 
 ## Disclaimer
 
@@ -104,3 +125,7 @@ This project is for educational and analytical purposes only. It is not investme
 ## Live Application
 
 **[Open the Interactive Portfolio VaR Engine Dashboard](https://portfolio-var-engine-nqev2xi4efhdfvax2mvzqp.streamlit.app/)**
+
+## Research Report
+
+**[Read or download the full quantitative research report](./Market_Risk_Research_Report.pdf)**
